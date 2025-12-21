@@ -1,4 +1,5 @@
-import Image from 'next/image';
+// Uncomment when you have a real image
+// import Image from 'next/image';
 
 export default function About() {
   return (
