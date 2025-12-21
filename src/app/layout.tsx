@@ -15,6 +15,18 @@ export const metadata: Metadata = {
   keywords: 'coaching emocional, coaching online, estrés laboral, profesionales, bienestar emocional, gestión del estrés, sesiones personalizadas',
   authors: [{ name: 'Coach Emocional' }],
   robots: 'index, follow',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    other: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '512x512',
+        url: '/android-chrome-512x512.png',
+      },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'es_ES',
