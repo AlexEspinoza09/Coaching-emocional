@@ -24,9 +24,13 @@ export default function Header() {
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo/Brand */}
           <div className="flex items-center">
-            <a href="#hero" className={`text-xl md:text-2xl font-bold transition-colors ${
-              isScrolled ? 'text-primary-700' : 'text-white'
-            }`}>
+            <a
+              href="#hero"
+              className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${
+                isScrolled ? 'text-gray-900' : 'text-white'
+              }`}
+              style={isScrolled ? { color: '#0f172a' } : {}}
+            >
               Coaching Emocional
             </a>
           </div>
@@ -35,32 +39,32 @@ export default function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <a
               href="#services"
-              className={`text-sm font-medium transition-colors hover:text-primary-600 ${
-                isScrolled ? 'text-gray-700' : 'text-white'
+              className={`text-sm font-medium transition-colors duration-300 hover:text-primary-600 ${
+                isScrolled ? 'text-gray-800' : 'text-white'
               }`}
             >
               Servicios
             </a>
             <a
               href="#paquetes"
-              className={`text-sm font-medium transition-colors hover:text-primary-600 ${
-                isScrolled ? 'text-gray-700' : 'text-white'
+              className={`text-sm font-medium transition-colors duration-300 hover:text-primary-600 ${
+                isScrolled ? 'text-gray-800' : 'text-white'
               }`}
             >
               Paquetes
             </a>
             <a
               href="#testimonios"
-              className={`text-sm font-medium transition-colors hover:text-primary-600 ${
-                isScrolled ? 'text-gray-700' : 'text-white'
+              className={`text-sm font-medium transition-colors duration-300 hover:text-primary-600 ${
+                isScrolled ? 'text-gray-800' : 'text-white'
               }`}
             >
               Testimonios
             </a>
             <a
               href="#faq"
-              className={`text-sm font-medium transition-colors hover:text-primary-600 ${
-                isScrolled ? 'text-gray-700' : 'text-white'
+              className={`text-sm font-medium transition-colors duration-300 hover:text-primary-600 ${
+                isScrolled ? 'text-gray-800' : 'text-white'
               }`}
             >
               FAQ
