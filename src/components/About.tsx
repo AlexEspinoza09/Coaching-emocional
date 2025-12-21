@@ -1,5 +1,4 @@
-// Uncomment when you have a real image
-// import Image from 'next/image';
+import Image from 'next/image';
 
 export default function About() {
   return (
@@ -9,20 +8,13 @@ export default function About() {
           {/* Image Section */}
           <div className="relative">
             <div className="relative h-96 lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-              {/* Placeholder - Replace with actual coach image */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-secondary-600 flex items-center justify-center">
-                <svg className="w-48 h-48 text-white opacity-50" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                </svg>
-              </div>
-              {/* Uncomment when you have a real image */}
-              {/* <Image
-                src="/images/coach-photo.jpg"
-                alt="Coach profesional"
+              <Image
+                src="/images/Funciones-de-un-psicologo-clinico-y-su-formacion.png"
+                alt="Funciones de un psicólogo clínico y su formación"
                 fill
                 className="object-cover"
                 priority
-              /> */}
+              />
             </div>
 
             {/* Decorative elements */}
