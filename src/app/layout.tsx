@@ -10,23 +10,23 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Coaching Emocional Profesional | Transforma tu Vida',
-  description: 'Descubre el poder del coaching emocional. Sesiones personalizadas para mejorar tu bienestar emocional, gestionar el estrés y alcanzar tus metas personales.',
-  keywords: 'coaching emocional, bienestar emocional, desarrollo personal, gestión de emociones, coach profesional',
+  title: 'Coaching Emocional Online | Recupera Calma en 6-8 Sesiones',
+  description: 'Agenda tu sesión gratuita de coaching emocional online. Recupera calma y claridad en 6–8 sesiones. Especializado en estrés laboral para profesionales.',
+  keywords: 'coaching emocional, coaching online, estrés laboral, profesionales, bienestar emocional, gestión del estrés, sesiones personalizadas',
   authors: [{ name: 'Coach Emocional' }],
   robots: 'index, follow',
   openGraph: {
     type: 'website',
     locale: 'es_ES',
     url: 'https://coaching-emocional.com',
-    title: 'Coaching Emocional Profesional | Transforma tu Vida',
-    description: 'Descubre el poder del coaching emocional. Sesiones personalizadas para mejorar tu bienestar emocional.',
+    title: 'Coaching Emocional Online | Recupera Calma en 6-8 Sesiones',
+    description: 'Agenda tu sesión gratuita de coaching emocional online. Recupera calma y claridad en 6–8 sesiones.',
     siteName: 'Coaching Emocional',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Coaching Emocional Profesional | Transforma tu Vida',
-    description: 'Descubre el poder del coaching emocional. Sesiones personalizadas para mejorar tu bienestar emocional.',
+    title: 'Coaching Emocional Online | Recupera Calma en 6-8 Sesiones',
+    description: 'Agenda tu sesión gratuita de coaching emocional online. Recupera calma y claridad en 6–8 sesiones.',
   },
 };
 
