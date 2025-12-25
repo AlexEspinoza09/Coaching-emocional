@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
+import ScrollReveal from './ScrollReveal';
 
 interface FormData {
   nombre: string;
@@ -50,18 +51,21 @@ export default function ContactForm() {
   return (
     <section id="agendar" className="py-20 bg-gradient-to-br from-gray-50 to-primary-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">Agenda tu Sesión</h2>
-          <p className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
-            Comienza tu transformación hoy
-          </p>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-            Primera sesión gratuita de 30 minutos. Sin compromiso.
-          </p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="text-center mb-12">
+            <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">Agenda tu Sesión</h2>
+            <p className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
+              Comienza tu transformación hoy
+            </p>
+            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+              Primera sesión gratuita de 30 minutos. Sin compromiso.
+            </p>
+          </div>
+        </ScrollReveal>
 
-        <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-5">
+        <ScrollReveal animation="zoom-in" delay={200}>
+          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-5">
             {/* Info Column */}
             <div className="lg:col-span-2 bg-gradient-to-br from-primary-600 to-primary-800 p-8 lg:p-10 text-white">
               <h3 className="text-2xl font-bold mb-6">¿Qué incluye la sesión gratuita?</h3>
@@ -285,7 +289,8 @@ export default function ContactForm() {
               */}
             </div>
           </div>
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

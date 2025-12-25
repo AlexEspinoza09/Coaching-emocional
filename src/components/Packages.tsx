@@ -1,3 +1,5 @@
+import ScrollReveal from './ScrollReveal';
+
 export default function Packages() {
   const packages = [
     {
@@ -54,26 +56,32 @@ export default function Packages() {
   return (
     <section id="paquetes" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">Paquetes</h2>
-          <p className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
-            Elige el plan que mejor se adapte a ti
-          </p>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-            Planes diseñados para diferentes necesidades y objetivos
-          </p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="text-center mb-16">
+            <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">Paquetes</h2>
+            <p className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
+              Elige el plan que mejor se adapte a ti
+            </p>
+            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+              Planes diseñados para diferentes necesidades y objetivos
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {packages.map((pkg, index) => (
-            <div
+            <ScrollReveal
               key={index}
-              className={`rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl ${
-                pkg.featured
-                  ? 'ring-4 ring-primary-500 transform md:scale-105 bg-gradient-to-br from-primary-50 to-white'
-                  : 'bg-white'
-              }`}
+              animation="zoom-in"
+              delay={index * 150}
             >
+              <div
+                className={`rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl h-full ${
+                  pkg.featured
+                    ? 'ring-4 ring-primary-500 transform md:scale-105 bg-gradient-to-br from-primary-50 to-white'
+                    : 'bg-white'
+                }`}
+              >
               {pkg.featured && (
                 <div className="bg-primary-600 text-white text-center py-2 px-4 text-sm font-semibold">
                   {pkg.cta}
@@ -129,26 +137,29 @@ export default function Packages() {
                 </a>
               </div>
             </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <p className="note mt-12 text-center text-gray-600 max-w-3xl mx-auto">
-          <span className="font-semibold">Nota:</span> Los precios son orientativos. El plan final se personaliza tras
-          la evaluación inicial gratuita, adaptándose a tus necesidades específicas y objetivos. Planes de pago
-          disponibles.
-        </p>
+        <ScrollReveal animation="fade-up" delay={500}>
+          <p className="note mt-12 text-center text-gray-600 max-w-3xl mx-auto">
+            <span className="font-semibold">Nota:</span> Los precios son orientativos. El plan final se personaliza tras
+            la evaluación inicial gratuita, adaptándose a tus necesidades específicas y objetivos. Planes de pago
+            disponibles.
+          </p>
 
-        <div className="mt-8 text-center">
-          <a
-            href="#agendar"
-            className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold text-lg"
-          >
-            ¿No estás seguro? Agenda una consulta gratuita
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-        </div>
+          <div className="mt-8 text-center">
+            <a
+              href="#agendar"
+              className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold text-lg"
+            >
+              ¿No estás seguro? Agenda una consulta gratuita
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

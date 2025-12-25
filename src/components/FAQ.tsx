@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import ScrollReveal from './ScrollReveal';
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -47,24 +48,30 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">
-            Preguntas Frecuentes
-          </h2>
-          <p className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
-            Resuelve tus dudas
-          </p>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-            Encuentra respuestas a las preguntas más comunes sobre el coaching emocional
-          </p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="text-center mb-16">
+            <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">
+              Preguntas Frecuentes
+            </h2>
+            <p className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
+              Resuelve tus dudas
+            </p>
+            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+              Encuentra respuestas a las preguntas más comunes sobre el coaching emocional
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div
+            <ScrollReveal
               key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden hover:border-primary-300 transition-colors duration-200"
+              animation="fade-up"
+              delay={index * 80}
             >
+              <div
+                className="border border-gray-200 rounded-lg overflow-hidden hover:border-primary-300 transition-colors duration-200"
+              >
               <button
                 onClick={() => toggleFAQ(index)}
                 className="w-full px-6 py-5 text-left bg-white hover:bg-gray-50 transition-colors duration-200 flex justify-between items-center"
@@ -93,21 +100,24 @@ export default function FAQ() {
                 </div>
               </div>
             </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-gray-600 mb-4">¿No encuentras la respuesta que buscas?</p>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200"
-          >
-            Contáctame directamente
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-        </div>
+        <ScrollReveal animation="fade-up" delay={700}>
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-4">¿No encuentras la respuesta que buscas?</p>
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center px-6 py-3 text-base font-medium rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200"
+            >
+              Contáctame directamente
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

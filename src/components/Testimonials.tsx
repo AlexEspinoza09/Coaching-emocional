@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import ScrollReveal from './ScrollReveal';
 // Uncomment when you have real images
 // import Image from 'next/image';
 
@@ -54,23 +55,29 @@ export default function Testimonials() {
   return (
     <section id="testimonios" className="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">Casos de Éxito</h2>
-          <p className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
-            Resultados reales de personas como tú
-          </p>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-            Historias verificadas de transformación y crecimiento personal
-          </p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="text-center mb-16">
+            <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">Casos de Éxito</h2>
+            <p className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
+              Resultados reales de personas como tú
+            </p>
+            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+              Historias verificadas de transformación y crecimiento personal
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* Featured testimonial - Desktop */}
         <div className="hidden md:grid md:grid-cols-3 gap-8 mb-12">
           {testimonials.map((testimonial, index) => (
-            <article
+            <ScrollReveal
               key={index}
-              className="testimonial bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+              animation="zoom-in"
+              delay={index * 150}
             >
+              <article
+                className="testimonial bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 h-full"
+              >
               {/* Image */}
               <div className="relative h-64 bg-gradient-to-br from-primary-400 to-secondary-600">
                 {/* Placeholder - Replace with actual images */}
@@ -130,11 +137,12 @@ export default function Testimonials() {
                 </div>
               </div>
             </article>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* Mobile view - Carousel */}
-        <div className="md:hidden mb-12">
+        <ScrollReveal animation="zoom-in" className="md:hidden mb-12">
           <article className="testimonial bg-white rounded-2xl shadow-lg overflow-hidden">
             {/* Image */}
             <div className="relative h-64 bg-gradient-to-br from-primary-400 to-secondary-600">
@@ -183,7 +191,7 @@ export default function Testimonials() {
               </div>
             </div>
           </article>
-        </div>
+        </ScrollReveal>
 
         {/* Navigation buttons */}
         <div className="flex justify-center gap-4 mb-6">

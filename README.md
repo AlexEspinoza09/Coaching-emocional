@@ -328,6 +328,90 @@ npm install resend
 
 Ver ejemplos comentados en `src/app/api/contact/route.ts`.
 
+## Producción con Nginx (Recomendado)
+
+### Arquitectura Segura
+
+La configuración recomendada usa Nginx como reverse proxy:
+
+```
+Internet → Puerto 80 (Nginx) → Puerto 3000 (Next.js - Interno)
+```
+
+**Ventajas:**
+- ✅ Solo el puerto 80 expuesto al público
+- ✅ Aplicación protegida (puerto 3000 NO accesible)
+- ✅ Headers de seguridad automáticos
+- ✅ Compresión Gzip
+- ✅ Caché optimizado
+- ✅ Preparado para HTTPS
+
+### Inicio Rápido con Nginx
+
+```bash
+# 1. Construir e iniciar
+docker-compose build app
+docker-compose up -d
+
+# 2. Verificar
+docker-compose ps
+curl http://localhost
+
+# 3. Ver logs
+docker-compose logs -f nginx
+docker-compose logs -f app
+```
+
+### Estructura de Producción
+
+```
+coaching-landing/
+├── nginx/
+│   ├── nginx.conf              # Configuración principal
+│   └── conf.d/
+│       └── default.conf        # Reverse proxy
+├── docker-compose.yml          # Nginx + App
+└── QUICK_START_PRODUCTION.md   # Guía rápida
+```
+
+### Configurar Firewall
+
+**Ubuntu/Debian:**
+```bash
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp  # Solo si usas HTTPS
+sudo ufw enable
+```
+
+**AWS Security Group:**
+- Permitir puerto 80 (HTTP)
+- Permitir puerto 443 (HTTPS)
+- **NO abrir** puerto 3000
+
+### Habilitar HTTPS
+
+```bash
+# 1. Obtener certificado Let's Encrypt
+sudo certbot certonly --standalone -d tu-dominio.com
+
+# 2. Copiar certificados
+mkdir -p nginx/ssl
+sudo cp /etc/letsencrypt/live/tu-dominio.com/fullchain.pem nginx/ssl/cert.pem
+sudo cp /etc/letsencrypt/live/tu-dominio.com/privkey.pem nginx/ssl/key.pem
+
+# 3. Descomentar sección HTTPS en nginx/conf.d/default.conf
+# 4. Descomentar puerto 443 en docker-compose.yml
+
+# 5. Reiniciar
+docker-compose up -d
+```
+
+### Documentación Completa
+
+- **QUICK_START_PRODUCTION.md**: Guía rápida de comandos
+- **PRODUCTION.md**: Guía completa con troubleshooting
+- **AWS_DEPLOYMENT.md**: Despliegue en AWS
+
 ## Despliegue
 
 ### Variables de Entorno en Producción

@@ -6,11 +6,13 @@ import About from '@/components/About';
 import Testimonials from '@/components/Testimonials';
 import FAQ from '@/components/FAQ';
 import ContactForm from '@/components/ContactForm';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 export default function Home() {
   return (
     <>
       <Header />
+      <WhatsAppButton />
       <main className="min-h-screen">
         <Hero />
         <Services />

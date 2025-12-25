@@ -1,3 +1,5 @@
+import ScrollReveal from './ScrollReveal';
+
 export default function Services() {
   const services = [
     {
@@ -59,51 +61,58 @@ export default function Services() {
   return (
     <section id="services" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">Servicios</h2>
-          <p className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
-            Cómo puedo ayudarte
-          </p>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-            Ofrezco sesiones personalizadas adaptadas a tus necesidades específicas
-          </p>
-        </div>
+        <ScrollReveal animation="fade-up">
+          <div className="text-center mb-16">
+            <h2 className="text-base text-primary-600 font-semibold tracking-wide uppercase">Servicios</h2>
+            <p className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900">
+              Cómo puedo ayudarte
+            </p>
+            <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+              Ofrezco sesiones personalizadas adaptadas a tus necesidades específicas
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <ScrollReveal
               key={index}
-              className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-8 group"
+              animation="zoom-in"
+              delay={index * 100}
             >
-              <div className="text-primary-600 mb-4 group-hover:scale-110 transition-transform duration-300">
-                {service.icon}
+              <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-8 group h-full">
+                <div className="text-primary-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                <p className="text-gray-600 mb-4">{service.description}</p>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold"
+                >
+                  Más información
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-              <p className="text-gray-600 mb-4">{service.description}</p>
-              <a
-                href="#contact"
-                className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold"
-              >
-                Más información
-                <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
-          >
-            Agenda tu Primera Sesión
-            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </a>
-        </div>
+        <ScrollReveal animation="fade-up" delay={700}>
+          <div className="mt-16 text-center">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg bg-primary-600 text-white hover:bg-primary-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+            >
+              Agenda tu Primera Sesión
+              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
